@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMaze</title>
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="images/favicon/maze_v8smlrdpg6le.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles/vars.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/dialogs.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="game">
+        <header>
+            <h1>iMaze</h1>
+            <menu>
+                <li class="reset "><img src="images/refresh.png" alt="reset" title="reset"></li>
+                <li class="configure"><img src="images/cogwheel.png" alt="configure" title="configure"></li>
+
+            </menu>
+        </header>
+        <main class="maze">
+        </main>
+        <footer>
+            <div class="author">
+                © Vadim Mitin
+                <a href="https://github.com/vadim-ma">
+                    <img src="images/github-mark/github-mark-black.png" alt="My Github page">
+                </a>
+                2023
+            </div>
+            <div class="school">
+                <a href="https://rs.school/js-stage0/">
+                    <img src="images/rs_school_js.svg" alt="RS School">
+                </a>
+            </div>
+        </footer>
+    </div>
+    <dialog class="dialog-win">
+        <h2 class="dialog--header">You won!</h2>
+        <p>The whole journey took <span class="dialog-win--steps"></span> steps.</p>
+        <p>You visited <span class="dialog-win--visited"></span> rooms.</p>
+        <p class="record-mesage hidden">
+            Yor have set a new record! Please enter your name.
+        </p>
+        <form name="win" method="dialog">
+            <fieldset disabled name="winners">
+                <legend>Hall of fame</legend>
+                <ol>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                    <li><input class="winner"></li>
+                </ol>
+            </fieldset>
+            <div class="dialog--close-buttons">
+                <button value="default" class="dialog--button">Start a new game</button>
+                <button value="cancel" class="dialog--button">Continue the game</button>
+            </div>
+        </form>
+        <button tabindex="-1" class="dialog--close-button"></button>
+    </dialog>
+    <dialog class="dialog-config">
+        <h2 class="dialog--header">Configuration</h2>
+        <form name="config" method="dialog">
+            <fieldset name="sizes">
+                <legend>Maze size</legend>
+                <div class="dialog-config--sizes-container">
+                    <label><input type="radio" name="size" checked value="tiny">tiny</label>
+                    <label><input type="radio" name="size" value="small">small</label>
+                    <label><input type="radio" name="size" value="medium">medium</label>
+                    <label><input type="radio" name="size" value="large">large</label>
+                </div>
+            </fieldset>
+            <label><input type="checkbox" name="perfect">perfect (no loops)</label>
+            <div class="dialog--close-buttons">
+                <button type="submit" value="default" class="dialog--button">Save & start a new game</button>
+                <button type="submit" value="cancel" class="dialog--button">Cancel</button>
+            </div>
+        </form>
+        <button tabindex="-1" class="dialog--close-button"></button>
+    </dialog>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+dialog {
+  margin: auto;
+}
+
+.dialog-win,
+.dialog-config {
+  padding: 1em;
+  border: none;
+}
+.dialog--header {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.dialog-win form,
+.dialog-config form {
+  margin: 1em auto 0;
+}
+
+.dialog--button {
+  font-size: inherit;
+  padding: 0.7em;
+}
+.dialog--close-button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em;
+  background-color: transparent;
+  background: url(../images/close_btn.svg) no-repeat center center;
+  background-size: 1em;
+  cursor: pointer;
+  border: none;
+}
+dialog::backdrop {
+  backdrop-filter: brightness(70%);
+}
+
+.dialog--close-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  padding: 1em 2em 0;
+}
+
+.dialog-win fieldset[name="winners"],
+.dialog-config fieldset[name="sizes"] {
+  padding: 1em;
+}
+.dialog-config fieldset[name="sizes"] {
+  margin-bottom: 1em;
+}
+.dialog-win form ol {
+  margin: 0 0 0 1em;
+}
+.dialog-win form ol li {
+  margin: 0 0 0.2em 0;
+  padding: 0;
+}
+.dialog-win form input {
+  width: 100%;
+}
+.dialog-win .record-mesage {
+  margin-top: 1em;
+}
+.dialog-win fieldset[name="winners"] input:not(.active) {
+  border: none;
+}
+.dialog-win fieldset[name="winners"] input:disabled {
+  background-color: inherit;
+}
+
+legend {
+  padding: 0 0.5em;
+}
+
+.dialog-config--sizes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+.dialog-config label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+}

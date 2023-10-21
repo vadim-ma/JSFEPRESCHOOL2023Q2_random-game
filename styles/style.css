@@ -1,0 +1,184 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  font-size: 12px;
+  width: 100vw;
+  /* height: 100vh; */
+  height: 100svh;
+  box-sizing: border-box;
+  color: var(--color-main);
+  background-color: var(--color-background);
+}
+
+.hidden {
+  display: none;
+}
+
+.game {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex: 0 0;
+}
+.game > * {
+  overflow: hidden;
+}
+.game > header {
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+menu {
+  display: flex;
+  list-style: none;
+  gap: 0.5em;
+}
+menu li {
+  padding: 0.5em;
+  cursor: pointer;
+}
+.game > footer {
+  padding: 0.5em;
+
+  display: flex;
+  height: 3.5em;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+footer > * {
+  height: 100%;
+}
+footer img {
+  height: 100%;
+}
+footer a:hover img {
+  filter: invert();
+}
+
+.author {
+  display: flex;
+  justify-self: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+}
+.author > * {
+  height: 100%;
+}
+.usage {
+  display: inline-block;
+  vertical-align: middle;
+}
+.maze {
+  background-image: url("../images/rock-wall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  flex-grow: 1;
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-grow: var(--rateCellWall);
+}
+.row--wallSize {
+  flex-grow: 1;
+}
+
+.cell {
+  flex-grow: var(--rateCellWall);
+
+  background-color: var(--color-background);
+}
+.cell--thin {
+  flex-grow: 1;
+}
+.cell--wall {
+  background-color: transparent;
+  transition: all 2s;
+}
+/* .cell--wall.cell--hidden {
+  background-color: var(--color-background);
+} */
+
+.cell--exit {
+  background-color: var(--color-exit);
+  animation: blinker 2s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    background-color: var(--color-background);
+  }
+}
+
+.cell--hero::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/footprints100.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.cell--hero.cell--right::after {
+  transform: rotate(90deg);
+}
+.cell--hero.cell--down::after {
+  transform: rotate(180deg);
+}
+.cell--hero.cell--left::after {
+  transform: rotate(-90deg);
+}
+.cell--hero.cell--up::after {
+  transform: rotate(0deg);
+}
+
+.cell.cell--visited:not(.cell--hero)::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  background-image: url(../images/footprints100.png);
+  filter: brightness(0) saturate(100%) invert(40%) sepia(2%) saturate(4%)
+    hue-rotate(34deg) brightness(96%) contrast(99%);
+
+  transition: all 4s;
+}
+.cell.cell--visited:not(.cell--hero).cell--right::after {
+  transform: rotate(90deg) scale(var(--scaleVisited));
+}
+.cell.cell--visited:not(.cell--hero).cell--down::after {
+  transform: rotate(180deg) scale(var(--scaleVisited));
+}
+.cell.cell--visited:not(.cell--hero).cell--left::after {
+  transform: rotate(-90deg) scale(var(--scaleVisited));
+}
+.cell.cell--visited:not(.cell--hero).cell--up::after {
+  transform: rotate(0deg) scale(var(--scaleVisited));
+}
+
+header img {
+  height: 1em;
+}
