@@ -1,0 +1,13 @@
+:root{
+    --rateCellWall: 5;
+    --scaleVisited: 70%;
+
+    /* https://www.w3schools.com/COLORS/colors_groups.asp */
+    --color-main: #323232;
+    --color-background: #DDD0C8;
+
+    /* --color-cell-hidden: GoldenRod; */
+    /* --color-cell-hidden: DarkKhaki   ; */
+    --color-cell-hidden: PeachPuff  ;
+    --color-exit: Orange ;
+}
